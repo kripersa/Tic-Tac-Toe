@@ -9,7 +9,7 @@
   text-align: center;
   flex-direction: column;
   padding: 30px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: rgb(36, 65, 60);
   width: 100%;
   height: 100vh;
@@ -47,10 +47,13 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  font-size: 40px;}
+  font-size: 40px;
+}
 
 .O-box {
   color: rgb(184, 184, 60);
+  font-size: 50px;
+  text-align: center;
 }
 .X-box {
   color: rgb(160, 65, 27);
