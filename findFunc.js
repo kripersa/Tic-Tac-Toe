@@ -7,9 +7,7 @@ const findCombination = (n1, n2) => {
 }
 
 export const findThirdElementOfWinningCombination = (n1, n2) => {
-  console.log(n1, n2)
   let combination = findCombination(n1, n2)
-  console.log(combination)
   if (!combination) return
   return combination.find(el => el !== n1 && el !== n2)
 }
