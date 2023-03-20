@@ -19,56 +19,36 @@ boxes.forEach(callBack)
 
 function callBack(box, index) {
   box.addEventListener('click', function (e) {
-    // e.target.innerHTML = nextLetter === 'X' ? '×' : '○'
-    e.target.innerHTML = '×'
-    e.target.className = `box X-box`
-    // if (nextLetter == x) {
-    xChoises.push(index)
-    //   nextLetter = o
-    // } else {
-    //   nextLetter = x
-    //   oChoises.push(index)
-    // }
+    fillTheBox('x', index)
 
     step++
     console.log({ step })
     switch (step) {
       case 1:
         let cpuChoise1 = stepOne(xChoises[0])
-        arrNew[cpuChoise1].innerHTML = '○'
-        arrNew[cpuChoise1].className = `box O-box`
-
-        oChoises.push(cpuChoise1)
         console.log({ cpuChoise1 })
+        fillTheBox('o', cpuChoise1)
         break
       case 2:
         let cpuChoise2 = stepTwo(xChoises)
         console.log({ cpuChoise2 })
-
-        arrNew[cpuChoise2].innerHTML = '○'
-        arrNew[cpuChoise2].className = `box O-box`
-
-        oChoises.push(cpuChoise2)
+        fillTheBox('o', cpuChoise2)
         break
       case 3:
         let cpuChoise3 = stepThree(xChoises, oChoises)
         console.log({ cpuChoise3 })
-        
-        arrNew[cpuChoise3].innerHTML = '○'
-        arrNew[cpuChoise3].className = `box O-box`
-
-        oChoises.push(cpuChoise3)
+        fillTheBox('o', cpuChoise3)
         break
 
       default:
+        console.log('arc ertshi ar shevida')
         break
     }
 
     if (checkWinningCombinations(xChoises)) {
-      boxes[winner[0]].classList.add('winnerBox')
-      boxes[winner[1]].classList.add('winnerBox')
-      boxes[winner[2]].classList.add('winnerBox')
+      winner.forEach(el => boxes[winner[el]].classList.add('winnerBox'))
     }
+
     if (checkWinningCombinations(oChoises)) {
       boxes[winner[0]].classList.add('winnerBox')
       boxes[winner[1]].classList.add('winnerBox')
@@ -88,3 +68,13 @@ restartButton.addEventListener('click', function (b) {
     boxes[winner[2]].classList.remove('winnerBox')
   }
 })
+
+const fillTheBox = (content, index) => {
+  arrNew[index].innerHTML = content === 'x' ? '×' : '○'
+  arrNew[index].className = `box ${content}-box`
+  if (content === 'x') {
+    xChoises.push(index)
+  } else {
+    oChoises.push(index)
+  }
+}
