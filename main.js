@@ -48,9 +48,9 @@ function callBack(box, index) {
     console.log(arrNew);
     arrNew.forEach((element) => {
       if (element.innerHTML === "X") {
-        element.classList.add("boxPointerEvents");
+        element.classList.add("disableClick");
       } else if (element.innerHTML === "O") {
-        element.classList.add("boxPointerEvents");
+        element.classList.add("disableClick");
       }
       console.log(element.innerHTML);
     });
@@ -77,7 +77,7 @@ restartButton.addEventListener("click", function (b) {
     winner.forEach((el) => boxes[el].classList.remove("winnerBox"))
     // boxes.forEach((el) => 
     console.log(arrNew)
-    arrNew.forEach((el) => el.classList.remove("boxPointerEvents"))
+    arrNew.forEach((el) => el.classList.remove("disableClick"))
    
   }
 
