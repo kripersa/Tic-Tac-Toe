@@ -30,7 +30,7 @@ function callBack(box, index) {
         fillTheBox('o', cpuChoise1)
         break
       case 2:
-        let cpuChoise2 = stepTwo(xChoises)
+        let cpuChoise2 = stepTwo(xChoises, oChoises)
         console.log({ cpuChoise2 })
         fillTheBox('o', cpuChoise2)
         break
