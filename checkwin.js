@@ -1,14 +1,15 @@
-import { winningCompbinations } from './winningCombinations.js'
-export let winner = []
+import { winningCompbinations } from "./winningCombinations.js";
+import { arrNew } from "./main.js";
+export let winner = [];
 
-export const checkWinningCombinations = numbers => {
-  return winningCompbinations.some(comb => {
-    let won = comb.every(el => numbers.includes(el))
+export const checkWinningCombinations = (numbers) => {
+  return winningCompbinations.some((comb) => {
+    let won = comb.every((el) => numbers.includes(el));
 
     if (won) {
-      winner = comb
-      console.log('god game', winner)
-      return comb
+      arrNew.forEach((el) => el.classList.add("x-box"));
+      winner = comb;
+      return comb;
     }
-  })
-}
+  });
+};
