@@ -1,13 +1,9 @@
-import {
-  checkIfCombinationIsPossible,
-  findCrossingCombinations,
-} from "../findCrossCombinations.js";
-import { findThirdElementOfWinningCombination } from "../findFunc.js";
+import { checkIfCombinationIsPossible } from '../findCrossCombinations.js'
+import { findThirdElementOfWinningCombination } from '../findFunc.js'
 
 export const stepTwo = (arr, arr2) => {
-  let third = findThirdElementOfWinningCombination(arr[0], arr[1]);
+  let third = findThirdElementOfWinningCombination(arr[0], arr[1])
 
-  if (third) return third;
-
-  return checkIfCombinationIsPossible(arr, arr2);
-};
+  if (third && third !== arr2[0]) return third
+  return checkIfCombinationIsPossible(arr, arr2)
+}
