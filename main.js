@@ -3,7 +3,7 @@ import { winner } from "./checkwin.js";
 import { stepOne } from "./steps/stepOne.js";
 import { stepThree } from "./steps/stepThree.js";
 import { stepTwo } from "./steps/stepTwo.js";
-
+let box = document.querySelector(".box");
 let restartButton = document.querySelector("#restartButton");
 let boxes = Array.from(document.getElementsByClassName("box"));
 let x = "X";
@@ -20,8 +20,9 @@ boxes.forEach(callBack);
 function callBack(box, index) {
   box.addEventListener("click", function (e) {
     fillTheBox("x", index);
-    
+
     step++;
+
     console.log({ step });
     switch (step) {
       case 1:
@@ -44,6 +45,15 @@ function callBack(box, index) {
         console.log("arc ertshi ar shevida");
         break;
     }
+    console.log(arrNew);
+    arrNew.forEach((element) => {
+      if (element.innerHTML === "X") {
+        element.classList.add("boxPointerEvents");
+      } else if (element.innerHTML === "O") {
+        element.classList.add("boxPointerEvents");
+      }
+      console.log(element.innerHTML);
+    });
 
     if (checkWinningCombinations(xChoises)) {
       winner.forEach((el) => boxes[el].classList.add("winnerBox"));
@@ -63,13 +73,18 @@ restartButton.addEventListener("click", function (b) {
     xChoises = [];
     oChoises = [];
     step = 0;
-    fireworkdiv.style.display = "none"
-    winner.forEach((el) => boxes[el].classList.remove("winnerBox"));
+    fireworkdiv.style.display = "none";
+    winner.forEach((el) => boxes[el].classList.remove("winnerBox"))
+    // boxes.forEach((el) => 
+    console.log(arrNew)
+    arrNew.forEach((el) => el.classList.remove("boxPointerEvents"))
+   
   }
+
 });
 
 const fillTheBox = (content, index) => {
-  arrNew[index].innerHTML = content === "x" ? "×" : "○";
+  arrNew[index].innerHTML = content === "x" ? "X" : "O";
   arrNew[index].className = `box ${content}-box`;
   if (content === "x") {
     xChoises.push(index);
