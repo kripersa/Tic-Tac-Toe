@@ -1,21 +1,21 @@
-const createTwoElementsArrays = arr => {
-  let arrays = []
-  let firstElementIndex = 0
-  let secondElementIndex = firstElementIndex + 1
+const createTwoElementsArrays = (arr) => {
+  let arrays = [];
+  let firstElementIndex = 0;
+  let secondElementIndex = firstElementIndex + 1;
 
   const pushTwoElements = () => {
-    arrays.push([arr[firstElementIndex], arr[secondElementIndex]])
-    secondElementIndex++
+    arrays.push([arr[firstElementIndex], arr[secondElementIndex]]);
+    secondElementIndex++;
 
     if (secondElementIndex === arr.length) {
-      firstElementIndex++
-      secondElementIndex = firstElementIndex + 1
+      firstElementIndex++;
+      secondElementIndex = firstElementIndex + 1;
     }
-    if (firstElementIndex === arr.length - 1) return
+    if (firstElementIndex === arr.length - 1) return;
 
-    pushTwoElements()
-  }
+    pushTwoElements();
+  };
 
-  pushTwoElements()
-  return arrays
-}
+  pushTwoElements();
+  return arrays;
+};
