@@ -225,3 +225,6 @@ body {
 .fireworkdiv{
   display: none;
 }
+.boxPointerEvents{
+  pointer-events: none;
+}
