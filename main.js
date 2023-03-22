@@ -45,15 +45,6 @@ function callBack(box, index) {
         console.log('arc ertshi ar shevida')
         break
     }
-    console.log(arrNew)
-    arrNew.forEach(element => {
-      if (element.innerHTML === 'X') {
-        element.classList.add('disableClick')
-      } else if (element.innerHTML === 'O') {
-        element.classList.add('disableClick')
-      }
-      console.log(element.innerHTML)
-    })
 
     if (checkWinningCombinations(xChoises)) {
       winner.forEach(el => boxes[el].classList.add('winnerBox'))

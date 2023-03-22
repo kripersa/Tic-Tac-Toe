@@ -1,3 +1,4 @@
+import { mostRepetableInArray } from './steps/helpers.js'
 import { winningCompbinations } from './winningCombinations.js'
 
 // export const findCrossingCombinations = (n1, n2) => {
@@ -51,7 +52,7 @@ export const checkIfCombinationIsPossible = (xs, os) => {
   let destructured = destructCombinations(filteredOs)
   let filteredXs = destructured.filter(c => c !== xs[0] && c !== xs[1])
 
-  return highestQuantity(filteredXs)
+  return mostRepetableInArray(filteredXs)
 }
 
 function uniqueArrs(arrs) {
@@ -70,18 +71,3 @@ function uniqueArrs(arrs) {
   return arrs
 }
 
-function highestQuantity(arr) {
-  let obj = {}
-  arr.forEach(el => {
-    if (obj[el]) {
-      obj[el]++
-    } else {
-      obj[el] = 1
-    }
-  })
-
-  const arr2 = Object.entries(obj)
-
-  arr2.sort((a, b) => b[1] - a[1])
-  return +arr2[0][0]
-}
