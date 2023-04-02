@@ -53,6 +53,26 @@ export const stepThree = (playerChoises, cpuChoises) => {
   ) {
     return third3
   }
+
+  if (
+    isAble(
+      checkIfCombinationIsPossible(playerChoises, cpuChoises),
+      playerChoises,
+      cpuChoises,
+    )
+  ) {
+    return checkIfCombinationIsPossible(playerChoises, cpuChoises)
+  }
   console.log('aq shemodis')
-  return checkIfCombinationIsPossible(playerChoises, cpuChoises)
+
+  // TODO aq randomad ar unda iyos,
+  // tu aris mogeba shesadzlebeli, im combinacias unda cdilobdes
+  return [0, 1, 2, 3, 4, 5, 6, 7, 8].find(n => {
+    return !playerChoises.includes(n) && !cpuChoises.includes(n)
+  })
+}
+
+function isAble(cell, xs, os) {
+  console.log({ cell, xs, os })
+  return !xs.includes(cell) && !os.includes(cell)
 }
