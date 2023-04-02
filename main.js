@@ -1,5 +1,6 @@
 import { checkWinningCombinations } from './checkwin.js'
 import { winner } from './checkwin.js'
+import { stepFour } from './steps/stepFour.js'
 import { stepOne } from './steps/stepOne.js'
 import { stepThree } from './steps/stepThree.js'
 import { stepTwo } from './steps/stepTwo.js'
@@ -34,21 +35,19 @@ function callBack(box, index) {
         break
       case 3:
         let cpuChoise3 = stepThree(xChoises, oChoises)
+        console.log({ cpuChoise3 })
         fillTheBox('o', cpuChoise3)
+        break
+      case 4:
+        let cpuChoise4 = stepFour(xChoises, oChoises)
+        console.log({ cpuChoise4 })
+        fillTheBox('o', cpuChoise4)
         break
 
       default:
         break
     }
-
-    if (checkWinningCombinations(xChoises)) {
-      winner.forEach(el => boxes[el].classList.add('winnerBox'))
-      fireworkdiv.style.display = 'block'
-    }
-    if (checkWinningCombinations(oChoises)) {
-      winner.forEach(el => boxes[el].classList.add('winnerBox'))
-      fireworkdiv.style.display = 'block'
-    }
+    checkWin(xChoises, oChoises)
   })
 }
 
@@ -73,5 +72,16 @@ const fillTheBox = (content, index) => {
     xChoises.push(index)
   } else {
     oChoises.push(index)
+  }
+}
+
+function checkWin(xChoises, oChoises) {
+  if (checkWinningCombinations(xChoises)) {
+    winner.forEach(el => boxes[el].classList.add('winnerBox'))
+    fireworkdiv.style.display = 'block'
+  }
+  if (checkWinningCombinations(oChoises)) {
+    winner.forEach(el => boxes[el].classList.add('winnerBox'))
+    fireworkdiv.style.display = 'block'
   }
 }
