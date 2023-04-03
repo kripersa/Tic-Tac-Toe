@@ -14,8 +14,19 @@ let xChoises = [];
 let oChoises = [];
 let step = 0;
 let fireworkdiv = document.querySelector(".fireworkdiv");
+let playerscore = 0;
+let scorediv1 = document.querySelector(".scorediv1");
+let cpuscore = 0;
+let scorediv2 = document.querySelector(".scorediv2")
+
+
+
+
+  scorediv1.innerHTML = 0
+  scorediv2.innerHTML = 0
 
 boxes.forEach(callBack);
+
 
 function callBack(box, index) {
   box.addEventListener("click", function (e) {
@@ -47,10 +58,17 @@ function callBack(box, index) {
     if (checkWinningCombinations(xChoises)) {
       winner.forEach((el) => boxes[el].classList.add("winnerBox"));
       fireworkdiv.style.display = "block";
+      cpuscore ++ 
+      
+      
     }
     if (checkWinningCombinations(oChoises)) {
       winner.forEach((el) => boxes[el].classList.add("winnerBox"));
       fireworkdiv.style.display = "block";
+      cpuscore ++ 
+      scorediv2.innerHTML = cpuscore 
+      console.log(cpuscore)
+      
     }
   });
 }
@@ -70,6 +88,7 @@ restartButton.addEventListener("click", function (b) {
 });
 
 const fillTheBox = (content, index) => {
+ 
   arrNew[index].innerHTML = content === "x" ? "×" : "○";
   arrNew[index].className = `box ${content}-box`;
   if (content === "x") {
@@ -78,3 +97,4 @@ const fillTheBox = (content, index) => {
     oChoises.push(index);
   }
 };
+

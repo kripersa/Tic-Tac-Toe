@@ -74,6 +74,37 @@ body {
   overflow: hidden;
 }
 
+.gamedetails{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+}
+.playerdiv {
+  display: flex;
+  gap:10px;
+  align-items: center;
+
+}
+.cpudiv {
+  display: flex;
+  gap:10px;
+  align-items: center;
+
+}
+
+span {
+  color: rgb(151, 222, 18);
+  font-size: 20px;
+  
+}
+.scorediv1 ,.scorediv2 {
+  height: 20px;
+  width: 20px;
+  background-color: white;
+}
+
 @keyframes firework {
   0% {
     transform: translate(var(--x), var(--initialY));
