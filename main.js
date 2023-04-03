@@ -15,6 +15,15 @@ let xChoises = []
 let oChoises = []
 let step = 0
 let fireworkdiv = document.querySelector('.fireworkdiv')
+let playerscore = 0;
+let scorediv1 = document.querySelector(".scorediv1");
+let cpuscore = 0;
+let scorediv2 = document.querySelector(".scorediv2");
+
+scorediv1.innerHTML = 0;
+scorediv2.innerHTML = 0;
+
+
 
 boxes.forEach(callBack)
 
@@ -79,9 +88,13 @@ function checkWin(xChoises, oChoises) {
   if (checkWinningCombinations(xChoises)) {
     winner.forEach(el => boxes[el].classList.add('winnerBox'))
     fireworkdiv.style.display = 'block'
+    playerscore ++
+    scorediv1.innerHTML = playerscore
   }
   if (checkWinningCombinations(oChoises)) {
     winner.forEach(el => boxes[el].classList.add('winnerBox'))
     fireworkdiv.style.display = 'block'
+    cpuscore ++
+    scorediv2.innerHTML = cpuscore
   }
 }
